@@ -1,0 +1,9 @@
+public function up()
+{
+    Schema::create('encuestas', function (Blueprint $table) {
+        $table->id();
+        $table->string('pregunta');
+        $table->text('opciones');
+        $table->timestamps();
+    });
+}
