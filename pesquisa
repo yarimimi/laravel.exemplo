@@ -1,0 +1,32 @@
+public function up()
+{
+    Schema::create('pesquisas', function (Blueprint $table) {
+        $table->id();
+        $table->string('pergunta');
+        $table->text('opcoes');
+        $table->timestamps();
+    });
+}
+
+----------------------------
+use Illuminate\Http\Request;
+use App\Models\Pesquisa;
+
+public function index()
+{
+    $pesquisas = Pesquisa::all();
+    return view('pesquisas.index', compact('pesquisas'));
+}
+
+public function show($id)
+{
+    $pesquisa = Pesquisa::find($id);
+    return view('pesquisas.show', compact('pesquisa'));
+}
+
+--------------------------
+
+use App\Http\Controllers\PesquisaController;
+
+Route::get('/pesquisas', [PesquisaController::class, 'index']);
+Route::get('/pesquisas/{id}', [PesquisaController::class, 'show']);
