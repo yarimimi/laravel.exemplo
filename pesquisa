@@ -9,6 +9,9 @@ public function up()
 }
 
 ----------------------------
+
+//controlador//
+
 use Illuminate\Http\Request;
 use App\Models\Pesquisa;
 
@@ -25,6 +28,8 @@ public function show($id)
 }
 
 --------------------------
+
+//rotas//
 
 use App\Http\Controllers\PesquisaController;
 
